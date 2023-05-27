@@ -1,13 +1,24 @@
 import '../Styles/Main.css'
 import {useState} from "react";
-import axios from "axios";
 function Login() {
 
     const [id , setId] = useState("");
     const [password,setPassword] = useState("");
 
+    const checkResposneCode = (res) => {
+        if(res.result_code === "Success") {
+            localStorage.setItem("token", res.result.token);
+            window.location.href = "/";
+        } 
+        else if (res.result_code === "LOGIN_NO_JOIN") {
+            alert(res.result)
+        }
+        else if (res.result_code === "LOGIN_NO_PASSWORD") {
+            alert(res.result)
+        }
+    }
 
-    const LoginFunc = (e) => {
+    const LoginFunc = async (e) => {
         e.preventDefault();
         if(!id || !password) {
             return alert("정보를 입력해주세요!")
@@ -18,10 +29,16 @@ function Login() {
                 password : password
             }
 
-            axios.post("http://localhost:8080/api/login",req)
-            .then((res)=>{
-                console.log(res.data)
+            await fetch("http://localhost:8080/api/login",{
+                method : "POST",
+                headers : {
+                "Content-Type" : "application/json"
+                },
+                body : JSON.stringify(req)
             })
+            .then(res => res.json())
+            .then((res) => checkResposneCode(res))
+            .catch(err => alert(err))
         }
     }
 
