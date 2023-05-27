@@ -1,29 +1,42 @@
 import '../Styles/Main.css'
-
+import {useState} from "react";
+import axios from "axios";
 function Login() {
 
-    async function request() {
-        const response = await fetch('http://localhost:3000/api/login',{
-            method : 'GET',
-        })
-        const data = await response.json();
-        console.log(data)
-    }
+    const [id , setId] = useState("");
+    const [password,setPassword] = useState("");
 
-    request()
+
+    const LoginFunc = (e) => {
+        e.preventDefault();
+        if(!id || !password) {
+            return alert("정보를 입력해주세요!")
+        }
+        else {
+            let req = {
+                userId : id,
+                password : password
+            }
+
+            axios.post("http://localhost:8080/api/login",req)
+            .then((res)=>{
+                console.log(res.data)
+            })
+        }
+    }
 
     return (
         <>
             <div className = "login-container">
-                <form action = "/api/login" method = "POST" id = "login-form">
+                <form onSubmit={LoginFunc} id = "login-form">
                     <div className = "title-box">Login</div>
                     <div className = "input-box">
                         <label for = "userId">userId</label>
-                        <input type = "text" id = "userId"></input>
+                        <input type = "text" id = "userId" value={id} onChange={(e)=> setId(e.target.value)}></input>
                     </div>
                     <div className = "input-box">
                         <label for = "password">password</label>
-                        <input type = "password" id = "password"></input>
+                        <input type = "password" id = "password" value={password} onChange={(e)=>setPassword(e.target.value)}></input>
                     </div>
                     <div className = "check-box">
                         <input type="checkbox" id="check1"/>
