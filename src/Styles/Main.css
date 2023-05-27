@@ -1,0 +1,37 @@
+/* 기본 설정 */
+html,body {margin: 0;padding: 0;width: 100%;height: 100%;}
+#root {width: 100%;height: 100%;}
+.App {width: 100%;height: 100%;}
+ul{list-style:none;padding-left:0px;margin: 0;}
+input {outline: none;}
+/* 메인 네비게이터 디자인 */
+.main-header > .nav {height: 60px;display: flex;justify-content: space-between;align-items: center;padding: 0 15px 0 15px;}
+.main-header > .nav > .nav-logo {width: 100px;height: 33px;background-image: url("https://mp-seoul-image-production-s3.mangoplate.com/web/resources/mangoplate-gray-logo.svg");background-size: cover;background-repeat: no-repeat;}
+.main-header > .nav > .nav-menu {display: flex;justify-content: center;}
+.main-header > .nav > .nav-menu > li {padding: 10px 20px;color: #eee;font-weight: 550;font-size: 15px;}
+
+/* 메인 컨테이너 디자인 */
+.main-container {width: 100%;height: 100%;}
+.main-container > .main-intro-wrap {width: 100%;height: 500px;display: flex;align-items: center;justify-content: center;}
+.main-container > .main-intro-wrap > .main-image {position: absolute;top: 0;left: 0;width: 100%;height: 500px;object-fit: cover;z-index: -1;}
+.main-container > .main-intro-wrap > .main-intro-form >  .main-intro-title {width: 100%;font-size: 35px;text-align: center;font-weight: 500;color: #eee;display: inline-block;margin: 0 0 50px 0;}
+.main-container > .main-intro-wrap > .main-intro-form {position: relative;}
+.main-container > .main-intro-wrap > .main-intro-form > .main-intro-search {width: 700px;}
+.main-container > .main-intro-wrap > .main-intro-form > .main-intro-search > #search {width: 700px;padding: 10px 20px 10px 20px;box-sizing: border-box;font-size: 18px;border: 3px solid #ff7100;border-radius: 25px;font-weight: 550;z-index: -1;}
+.main-container > .main-intro-wrap > .main-intro-form > .main-intro-search > #submit-btn {position: absolute;right: 0;width: 150px;border-radius: 25px;background-color: #ff7100;color: #fff;border: 0;height: 45px;font-size: 25px;}
+
+/* 로그인 컨테이너 디자인 */
+.login-container {width: 100%;height: 100%;display: flex;justify-content: center;align-items: center;}
+.login-container > #login-form {text-align: center;border-radius: 25px;border: 2px solid #333;padding: 20px 15px 30px 15px;}
+.login-container > #login-form > .title-box {font-size: 45px;line-height: 150px;}
+.login-container > #login-form > .input-box {margin-top: 30px;width: 400px;position: relative;}
+.login-container > #login-form > .input-box > label {position: absolute;left: 10px;top:-30px;font-size: 20px;color: #777;}
+.login-container > #login-form > .input-box > input {width: 100%;font-size: 20px;padding:15px 15px 15px 15px;box-sizing: border-box;border: 2px solid #333;border-radius: 25px;}
+.login-container > #login-form > .check-box {display: flex;justify-content: space-between;margin: 15px 10px 15px 10px;}
+.login-container > #login-form > .check-box > input[type="checkbox"] {display: none;}
+.login-container > #login-form > .check-box > input[type="checkbox"] + label{ display: inline-block; width: 20px; height: 20px;border:3px solid #707070;position: relative;}
+.login-container > #login-form > .check-box > input[id="check1"]:checked + label::after{content:'✔';font-size: 15px;width: 20px;height: 20px;text-align: center;position: absolute;left: 0;top:0;}
+.login-container > #login-form > .check-box > a {text-decoration: none;color:black;}
+.login-container > #login-form > .btn-box > #login-btn {width: 250px;height: 50px;background-color: #fff;border-radius: 25px;font-size: 18px;}
+.login-container > #login-form > .next-page-box {margin: 20px;}
+.login-container > #login-form > .next-page-box > a {text-decoration: none;color: black;}
