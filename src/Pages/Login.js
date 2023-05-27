@@ -1,13 +1,17 @@
 import '../Styles/Main.css'
 import {useState} from "react";
+import { useCookies } from 'react-cookie';
+import moment from 'moment';
 function Login() {
 
     const [id , setId] = useState("");
     const [password,setPassword] = useState("");
+    const [cookies,setCookie,removeCookie] = useCookies();
 
     const checkResposneCode = (res) => {
         if(res.result_code === "Success") {
-            localStorage.setItem("token", res.result.token);
+            const expires = moment().add('1','m').toDate()
+            setCookie('token',res.result.token,{expires})
             window.location.href = "/";
         } 
         else if (res.result_code === "LOGIN_NO_JOIN") {

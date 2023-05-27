@@ -19,6 +19,20 @@ input {outline: none;}
 .main-container > .main-intro-wrap > .main-intro-form > .main-intro-search {width: 700px;}
 .main-container > .main-intro-wrap > .main-intro-form > .main-intro-search > #search {width: 700px;padding: 10px 20px 10px 20px;box-sizing: border-box;font-size: 18px;border: 3px solid #ff7100;border-radius: 25px;font-weight: 550;z-index: -1;}
 .main-container > .main-intro-wrap > .main-intro-form > .main-intro-search > #submit-btn {position: absolute;right: 0;width: 150px;border-radius: 25px;background-color: #ff7100;color: #fff;border: 0;height: 45px;font-size: 25px;}
+.main-container > .main-content-wrap {width: 1500px;margin: 0 auto;}
+.main-container > .main-content-wrap > .main-content-top {display: flex;justify-content: space-between;padding:0 20px 0 20px;}
+.main-container > .main-content-wrap > .main-content-top > .main-content-title {font-size: 22px;color: #ff7100;}
+.main-container > .main-content-wrap > .main-content-top > .main-content-more {font-size: 18px;color: #777;text-decoration: underline;}
+.main-container > .main-content-wrap > .main-content-bottom .main-content-images {text-align: center;}
+.main-container > .main-content-wrap > .main-content-bottom .main-content-images > li {display: inline;}
+.main-container > .main-content-wrap > .main-content-bottom >  .main-content-images > li {text-align: center;}
+.main-container > .main-content-wrap > .main-content-bottom > .main-content-images > li > img {margin: 50px}
+
+
+
+
+
+
 
 /* 로그인 컨테이너 디자인 */
 .login-container {width: 100%;height: 100%;display: flex;justify-content: center;align-items: center;}
