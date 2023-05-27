@@ -2,15 +2,15 @@ import '../Styles/Main.css'
 
 function Login() {
 
-async function request() {
-const response = await fetch('http://localhost:3000/api/login',{
-method : 'GET',
-})
-const data = await response.json();
-console.log(data)
-}
+// async function request() {
+// const response = await fetch('http://localhost:8080/api/login',{
+// method : 'GET',
+// })
+// const data = await response.json();
+// console.log(data)
+// }
 
-request()
+// request()
 
 return (
 <>
