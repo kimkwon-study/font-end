@@ -10,7 +10,7 @@ function Login() {
         console.log(data)
     }
 
-    
+    request()
 
     return (
         <>
