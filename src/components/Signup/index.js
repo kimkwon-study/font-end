@@ -1,28 +1,46 @@
 import { useForm } from 'react-hook-form'
-
-import axios from 'axios'
+import { useCookies } from 'react-cookie'
+import moment from 'moment'
 import './styles.css'
 import { Col, Container, FloatingLabel, Form, Row } from 'react-bootstrap'
 
 const Signup = () => {
+    const {setCookie} = useCookies()
     const {
         register,
         handleSubmit,
         formState : { errors, isSubmitting },
     } = useForm();
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         alert(JSON.stringify(data))
-        axios.post('http://localhost:8080/api/register', JSON.stringify(data))
-            .then(function (response) {
-                console.log(response);
-                if (response.result_code === "REGISTER_SAME_ID") {
-                    alert(response.result)
-                }
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+        return await fetch('http://localhost:8080/api/register', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(function (res) { 
+            console.log(res.result)
+            if (res.result_code === "Success") {
+                alert(res.result)
+                handleCookie(res.result, data)
+            }
+            if (res.result_code === "REGISTER_SAME_ID") {
+                alert(res.result)
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
+
+    const handleCookie = (result, data) => {
+        const expires = moment().add('1','m').toDate()
+        setCookie('token',result.token,{expires})
+        window.location.href = "/";
+        // registration 완료 컴포넌트 ux 필요함
     }
 
     return (
